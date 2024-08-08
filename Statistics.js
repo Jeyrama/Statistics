@@ -52,3 +52,5 @@ class DataSet {
     return this.variance;
   }
 }
+
+// or
