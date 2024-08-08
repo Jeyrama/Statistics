@@ -26,3 +26,6 @@ Notes:
 In this challenge, the computed values of your variance and stdDeviation need only be correct to 3 decimal places 
 (the author's solution being the standard for correct values), so you may assume float arithmetic is commutative.
 */
+
+
+// Solution
