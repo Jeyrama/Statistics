@@ -54,3 +54,30 @@ class DataSet {
 }
 
 // or
+
+const DataSet = function(...data) {
+  const calcMean = d => d.reduce((c,p)=>c+p,0)/d.length;
+  const calcVariance = (d, m) => calcMean(d.map(a => Math.pow(a-m,2)));
+
+  let _data = data;
+  let _mean = calcMean(_data);
+  let _variance = calcVariance(_data,_mean);
+  let _stdDeviation = Math.sqrt(_variance);
+    
+  return {
+    get mean() { return _mean; },
+    get data() { return _data; },
+    set data(d) { _data = d; },
+    get variance() { return _variance },
+    get stdDeviation() { return _stdDeviation },
+    setMean:_=> {
+      _mean = calcMean(_data);
+      return _mean;
+    },
+    setVar:_=> {
+      _variance = calcVariance(_data,_mean);
+      _stdDeviation = Math.sqrt(_variance);
+      return _variance;
+    }
+  };
+}
