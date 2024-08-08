@@ -29,3 +29,26 @@ In this challenge, the computed values of your variance and stdDeviation need on
 
 
 // Solution
+
+function mean(list) {
+	return list.reduce((sum, n) => sum + n) / list.length;
+}
+
+class DataSet {
+	constructor(...data) {
+  	this.data = data;
+    this.setMean();
+    this.setVar();
+	}
+  
+  setMean() {
+  	return this.mean = mean(this.data);
+  }
+  
+  setVar() {
+  	const m = mean(this.data);
+		this.variance = mean(this.data.map(x => (x - m) ** 2));
+    this.stdDeviation = Math.sqrt(this.variance);
+    return this.variance;
+  }
+}
